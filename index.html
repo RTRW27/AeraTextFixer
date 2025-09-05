@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aera Text Fixer</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-color-scheme="light">
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="app-title">
+                        <span class="title-icon">📖</span>
+                        Aera Text Fixer
+                    </h1>
+                    <button class="theme-toggle btn btn--outline btn--sm" id="themeToggle" type="button">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="input-panel">
+                        <div class="card">
+                            <div class="card__header">
+                                <h2>Input Text</h2>
+                                <div class="button-group">
+                                    <button class="btn btn--outline btn--sm" id="clearInput" type="button">Clear</button>
+                                </div>
+                                <span class="char-count" id="inputCharCount">0 characters</span>
+                            </div>
+                            <div class="card__body">
+                                <label for="fileInput" class="file-upload-area" id="fileUploadArea">
+                                    <input type="file" id="fileInput" accept=".txt" class="file-input">
+                                    <div class="file-upload-label">
+                                        <span class="upload-icon">📁</span>
+                                        <span>Drop a .txt file here or click to browse</span>
+                                    </div>
+                                </label>
+                                <textarea 
+                                    class="form-control text-area" 
+                                    id="inputText" 
+                                    placeholder="Paste your messy text here..."
+                                    rows="12"
+                                    spellcheck="false"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-panel">
+                        <div class="action-buttons">
+                            <div class="processing-controls">
+                                <select id="formatOption" class="form-control">
+                                    <option value="single-to-double" selected>Single to Double Newlines</option>
+                                    <option value="double-to-single">Double to Single Newlines</option>
+                                </select>
+                                <button class="btn btn--primary btn--lg process-btn" id="processBtn" type="button">
+                                    <span class="btn-icon">✨</span>
+                                    Process
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="output-panel">
+                        <div class="card">
+                           <div class="card__header">
+                                <h2>Fixed Text</h2>
+                                <div class="button-group">
+                                    <button class="btn btn--outline btn--sm" id="copyResult" type="button">Copy</button>
+                                </div>
+                                <span class="char-count" id="outputCharCount">0 characters</span>
+                            </div>
+                            <div class="card__body">
+                                <textarea 
+                                    class="form-control text-area" 
+                                    id="outputText" 
+                                    readonly
+                                    placeholder="Fixed text will appear here..."
+                                    rows="12"
+                                    spellcheck="false"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="instructions">
+                        <h3>How to use:</h3>
+                        <ul>
+                            <li>Paste your text or upload a .txt file</li>
+                            <li>Select a formatting option</li>
+                            <li>Click "Process" or press Ctrl+Enter</li>
+                            <li>Copy the result using the button or shortcut</li>
+                        </ul>
+                    </div>
+                    <div class="shortcuts">
+                        <h3>Keyboard Shortcuts:</h3>
+                        <ul>
+                            <li><kbd>Ctrl+Enter</kbd> - Process text</li>
+                            <li><kbd>Ctrl+Shift+C</kbd> - Copy result text</li>
+                            <li><kbd>Ctrl+R</kbd> - Clear all</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
